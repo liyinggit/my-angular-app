@@ -1,3 +1,14 @@
-<p>
-  heroes works!
-</p>
+<!-- 将英雄的名字变为大写 -->
+<h2>{{hero.name | uppercase}} Details</h2>
+
+<div><span>id: </span>{{hero.id}}</div>
+
+<div><span>name: </span>{{hero.name}}</div>
+
+
+<!-- 数据双向绑定 ,要使用需要在 app.module.ts中导入FormModule-->
+<div>
+  <label>name:
+    <input [(ngModel)]="hero.name" placeholder="name">
+  </label>
+</div>
