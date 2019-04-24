@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Hero } from './hero';
 import { HEROES } from './mock-heroes';
 import { Observable, of } from 'rxjs';
+import { MessageService } from './message.service';
 
 //使用@Injectable() 装饰器 将这个类标记为依赖注入系统的参与者之一
 //HeroService 可以从任何地方获取数据
@@ -11,7 +12,8 @@ import { Observable, of } from 'rxjs';
 })
 export class HeroService {
 
-constructor() { }
+  //将messageService注入到HeroService中
+constructor(private messageService:MessageService) { }
 
 
 //返回模拟的英雄列表
@@ -21,6 +23,8 @@ constructor() { }
 
 //使用 Observable可观察的
 getHeroes():Observable<Hero[]>{
+  //在获取到英雄数组时发送一条消息
+  this.messageService.add('HeroService:fetched heros');
   return of(HEROES);
 }
 
