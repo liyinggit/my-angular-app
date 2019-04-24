@@ -11,6 +11,12 @@
 </ul>
 
 
+<!-- 子组件，将selectedHero传给属性hero hero要添加 @Input() 装饰器 -->
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+
+
+
+
 <!-- 只有当selectedHero存在时才显示所选英雄的详情，使用*ngIf判断 -->
 <div *ngIf="selectedHero">
 
