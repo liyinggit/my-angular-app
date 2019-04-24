@@ -15,7 +15,7 @@ export class HeroesComponent implements OnInit {
 //  }
 
  //heros属性可以暴露mock里的英雄数据
- heros = HEROES;
+ heroes = HEROES;
 
  selectedHero:Hero;
 
