@@ -37,8 +37,14 @@ heroes:Hero[];
   }
 
 
-  //从service中获取这些英雄数据
+  //从service中获取这些英雄数据,同步的
+  // getHeroes():void{
+  //   this.heroes = this.heroService.getHeroes();
+  // }
+
+  //service中使用了Observable可观察的，异步方式
   getHeroes():void{
-    this.heroes = this.heroService.getHeroes();
+    this.heroService.getHeroes()
+      .subscribe(heroes =>this.heroes = heroes)
   }
 }
