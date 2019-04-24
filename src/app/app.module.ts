@@ -18,7 +18,7 @@ import { TodosComponent } from './todos/todos.component';
    imports: [
       BrowserModule,
       AppRoutingModule,
-      environment.production?\n[
+
    ],
    providers: [],
    bootstrap: [
