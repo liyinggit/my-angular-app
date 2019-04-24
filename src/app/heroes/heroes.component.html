@@ -1,11 +1,27 @@
 
-<!-- 使用UppercasePipe进行格式化 -->
-<h2>{{hero.name | uppercase}}</h2>
-<div><span>id:</span>{{hero.id}}</div>
 
-<!-- 使用ngModel进行数据双向绑定,进行数据双向绑定需要FormModule（在app.module中添加） -->
-<div>
-  <label>name:
-    <input [(ngModel)]="hero.name" placeholder="name">
-  </label>
+<h2>my heros list</h2>
+<!-- 使用*ngFor列出这些英雄     使用click添加点击事件-->
+<ul class="heroes">
+  <li *ngFor="let hero of heroes"
+    [class.selected]="hero === selectedHero"
+    (click)="onSelect(hero)">
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  </li>
+</ul>
+
+
+<!-- 只有当selectedHero存在时才显示所选英雄的详情，使用*ngIf判断 -->
+<div *ngIf="selectedHero">
+
+  <!-- 使用UppercasePipe进行格式化 -->
+  <h2>{{selectedHero.name | uppercase}}</h2>
+  <div><span>id:</span>{{selectedHero.id}}</div>
+
+  <!-- 使用ngModel进行数据双向绑定,进行数据双向绑定需要FormModule（在app.module中添加） -->
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedHero.name" placeholder="name">
+    </label>
+  </div>
 </div>
