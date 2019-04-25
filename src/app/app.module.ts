@@ -12,6 +12,9 @@ import { HttpClientModule }    from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
+import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
+import { environment } from '../environments/environment';
 
 @NgModule({
    declarations: [
@@ -29,7 +32,10 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
       HttpClientModule,
       HttpClientInMemoryWebApiModule.forRoot(
          InMemoryDataService, { dataEncapsulation: false }
-       )
+       ),
+      environment.production ?
+        [] :
+        [ AkitaNgDevtools.forRoot(), AkitaNgRouterStoreModule.forRoot() ]
    ],
    providers: [],
    bootstrap: [
