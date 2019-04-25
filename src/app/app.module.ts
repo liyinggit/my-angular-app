@@ -15,6 +15,8 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
 import { environment } from '../environments/environment';
+import {BooksComponent} from '../app/akita/books/books.component';
+import {BookComponent} from '../app/akita/book/book.component';
 
 @NgModule({
    declarations: [
@@ -23,7 +25,10 @@ import { environment } from '../environments/environment';
       HeroDetailComponent,
       MessagesComponent,
       DashboardComponent,
-      HeroSearchComponent
+      HeroSearchComponent,
+      BooksComponent,
+      BookComponent
+
    ],
    imports: [
       BrowserModule,
