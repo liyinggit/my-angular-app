@@ -9,6 +9,8 @@ export class InMemoryDataService implements InMemoryDbService {
 
 constructor() { }
 
+
+//模拟数据库
 createDb(){
   const heroes = [
     { id: 11, name: 'Mr. Nice' },

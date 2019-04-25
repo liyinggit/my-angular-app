@@ -19,6 +19,7 @@ const httpOptions = {
 })
 export class HeroService {
 
+  //此处也可改为后台接口，这里使用的是自定义的web api
   private heroesUrl = 'api/heroes';  // URL to web api
 
   //将messageService注入到HeroService中
@@ -128,6 +129,12 @@ getHero(id: number): Observable<Hero> {
   }
 
 
+  /**
+ * Handle Http operation that failed.
+ * Let the app continue.
+ * @param operation - name of the operation that failed
+ * @param result - optional value to return as the observable result
+ */
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
   

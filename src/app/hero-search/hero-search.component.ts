@@ -12,10 +12,12 @@ import { HeroService } from '../hero.service';
 @Component({
   selector: 'app-hero-search',
   templateUrl: './hero-search.component.html',
-  styleUrls: ['./hero-search.component.css']
+  styleUrls: ['./hero-search.component.css'],
+  // providers:[HeroService]   //依赖注入也可在这添加
 })
 export class HeroSearchComponent implements OnInit {
 
+  //heroes$声明为Observable
   heroes$: Observable<Hero[]>;
   private searchTerms = new Subject<string>();
  
