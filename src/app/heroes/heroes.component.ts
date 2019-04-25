@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from '../hero'
+import {Hero} from '../hero';
+import { HEROES } from '../mock-heroes';
+import { HeroService } from '../hero.service';
 
 @Component({
-  selector: 'app-heroes',   //组件的选择器（css元素选择器）
-  templateUrl: './heroes.component.html',    //组件模板元素的位置
-  styleUrls: ['./heroes.component.css']    //组件私有css样式表文件位置
+  selector: 'app-heroes',   //组件的选择器，css元素选择器
+  templateUrl: './heroes.component.html',
+  styleUrls: ['./heroes.component.css']
 })
 export class HeroesComponent implements OnInit {
   //添加一个hero属性，可以在模板文件heroes.component.html中使用
@@ -13,13 +15,58 @@ export class HeroesComponent implements OnInit {
     name:'windstorm'
   }
 
-  constructor() { }
+//  hero:Hero ={
+//    id:1,
+//    name:'windstorm'
+//  }
+
+ //heros属性可以暴露mock里的英雄数据
+ //直接获取到模拟的英雄列表
+//  heroes = HEROES;
+
+heroes:Hero[];
+
+ selectedHero:Hero;
+
+ //注入HeroService
+  constructor(private heroService:HeroService) { }
 
   /**
    * 生命周期钩子，初始化逻辑
    */
   ngOnInit() {
+    this.getHeroes();
   }
 
-  
+  //添加click的事件处理器
+  //把从html中来的hero赋值给selectedHero，这样html中就可以再次判断selectedHero的值
+  onSelect(hero:Hero):void{
+    this.selectedHero = hero;
+  }
+
+
+  //从service中获取这些英雄数据,同步的
+  // getHeroes():void{
+  //   this.heroes = this.heroService.getHeroes();
+  // }
+
+  //service中使用了Observable可观察的，异步方式
+  getHeroes():void{
+    this.heroService.getHeroes()
+      .subscribe(heroes =>this.heroes = heroes)
+  }
+
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.heroService.addHero({ name } as Hero)
+      .subscribe(hero => {
+        this.heroes.push(hero);
+      });
+  }
+ 
+  delete(hero: Hero): void {
+    this.heroes = this.heroes.filter(h => h !== hero);
+    this.heroService.deleteHero(hero).subscribe();
+  }
 }

@@ -5,7 +5,19 @@
   </h1>
 </div>
 
+<nav>
+  <a routerLink="/heroes">Heroes</a>
+</nav>
+<nav>
+  <a routerLink="/dashboard">dashboard</a>
+</nav>
 
+<!-- 要使用heros里定义的内容，要在这里添加 -->
+<!-- <app-heroes></app-heroes> -->
 
+<!-- 添加路由出口 -->
 <router-outlet></router-outlet>
-<app-heroes></app-heroes>
+
+<app-Messages></app-Messages>
+
+

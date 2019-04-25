@@ -1,8 +1,5 @@
-/**
- * 创建的hero类
- */
-
-export class Hero {
+//创建Hero类
+export class Hero{
     id:number;
     name:string;
 }

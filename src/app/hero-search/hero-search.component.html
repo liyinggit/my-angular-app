@@ -1,0 +1,16 @@
+<div id="search-component">
+  <h4>Hero Search</h4>
+
+  <!-- #searchBox为模板引用变量 -->
+  <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+
+  <!-- 使用$表明 heroes$是一个Observable,而不是数组  后面添加| async一遍让*ngFor使用它-->
+  <!-- let hero为模板输入变量 -->
+  <ul class="search-result">
+    <li *ngFor="let hero of heroes$ | async" >
+      <a routerLink="/detail/{{hero.id}}">
+        {{hero.name}}
+      </a>
+    </li>
+  </ul>
+</div>
