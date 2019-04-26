@@ -22,6 +22,7 @@
     "@datorama/akita": "^3.8.2",
     "angular-in-memory-web-api": "^0.8.0",
     "core-js": "^2.5.4",
+    "husky": "^2.1.0",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
@@ -48,5 +49,15 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~3.2.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "ng lint  && ng build --prod"
+    }
+  },
+  "akitaCli": {
+    "customFolderName": "true",
+    "isAngular": true,
+    "basePath": "./src/app/"
   }
 }
