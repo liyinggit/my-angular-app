@@ -16,8 +16,8 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.getHeroes();
   }
- 
-  //会截取第二道第五道的英雄，返回2.3.4.5
+
+  // 会截取第二道第五道的英雄，返回2.3.4.5
   getHeroes(): void {
     this.heroService.getHeroes()
       .subscribe(heroes => this.heroes = heroes.slice(1, 5));

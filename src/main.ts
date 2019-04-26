@@ -7,7 +7,7 @@ import { enableAkitaProdMode } from '@datorama/akita';
 
 if (environment.production) {
   enableProdMode();
-  enableAkitaProdMode();  //在开发模式下设置，一遍正常使用store
+  enableAkitaProdMode();  // 在开发模式下设置，一遍正常使用store
 }
 
 platformBrowserDynamic().bootstrapModule(AppModule)

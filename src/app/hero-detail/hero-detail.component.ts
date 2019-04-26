@@ -1,7 +1,7 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Hero } from '../hero';
 import { Location } from '@angular/common';
-import { HeroService }  from '../hero.service';
+import { HeroService } from '../hero.service';
 import { ActivatedRoute } from '@angular/router';
 
 /**
@@ -14,21 +14,21 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HeroDetailComponent implements OnInit {
 
-  //hero属性必须是一个带有@Input（）装饰器的输入属性，因为外部的HeroesComponent组件将会绑定他
-  @Input() hero:Hero;
+  // hero属性必须是一个带有@Input（）装饰器的输入属性，因为外部的HeroesComponent组件将会绑定他
+  @Input() hero: Hero;
 
   constructor(
-    private route: ActivatedRoute,   //保存路由信息
-    private heroService: HeroService,  //获取显示的英雄
-    private location: Location   //与浏览器打交道
-  ) {}
+    private route: ActivatedRoute,   // 保存路由信息
+    private heroService: HeroService,  // 获取显示的英雄
+    private location: Location   // 与浏览器打交道
+  ) { }
 
   ngOnInit(): void {
     this.getHero();
   }
-  
 
-  //获取从html来的id
+
+  // 获取从html来的id
   getHero(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.heroService.getHero(id)
@@ -36,8 +36,8 @@ export class HeroDetailComponent implements OnInit {
   }
 
 
-  //回到上一个页面
-  goBack():void{
+  // 回到上一个页面
+  goBack(): void {
     this.location.back();
   }
 
